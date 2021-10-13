@@ -12,7 +12,6 @@ public class UpMovement : MonoBehaviour
         {
             Health.healthValue--;
             Score.scoreValue--;
-            //Flashing animation.
         }
     }
 

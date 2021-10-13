@@ -9,7 +9,6 @@ public class Destroyer : MonoBehaviour
     {
         if (other.gameObject.tag == "Pineapple")
         {
-            Debug.Log("In the destroyer function");
             Destroy(other.gameObject);
         }
     }
