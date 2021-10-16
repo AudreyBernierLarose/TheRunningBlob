@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private Transform groundCheckPos;
     [SerializeField] private LayerMask whatIsGround;
+    private AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSrc = GetComponent<AudioSource>();
 
         startPos = gameObject.transform.position;
     }
@@ -39,8 +41,19 @@ public class PlayerController : MonoBehaviour
             rBody.AddForce(new Vector2(0.0f, jumpForce));
             isGrounded = false;
         }
-
+        
         rBody.velocity = new Vector2(horiz * speed, rBody.velocity.y);
+
+        //Step effects
+        if ((rBody.velocity.x > 0 || rBody.velocity.x < 0)&& isGrounded)
+        {
+            if (!audioSrc.isPlaying)
+            {
+                audioSrc.Play();
+            }
+        }
+        else
+            audioSrc.Stop();
 
         //Check if the sprite needs to be flipped
         if ((isFacingRight && rBody.velocity.x < 0) || (!isFacingRight && rBody.velocity.x > 0))
@@ -57,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private bool GroundCheck()
     {
+        //Add Audio ?
         return Physics2D.OverlapCircle(groundCheckPos.position, groundCheckRadius, whatIsGround);
     }
 
