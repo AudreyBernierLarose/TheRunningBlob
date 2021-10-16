@@ -11,7 +11,7 @@ public class UpMovement : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Health.healthValue--;
-            Score.scoreValue--;
+
         }
     }
 

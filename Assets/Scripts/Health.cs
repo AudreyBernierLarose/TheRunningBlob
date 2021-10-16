@@ -17,6 +17,11 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthValue > 3)
+            healthValue = 3f;
+        if (healthValue < 0)
+            healthValue = 0f;
+
         health.text = " HP: " + healthValue;
     }
 }
