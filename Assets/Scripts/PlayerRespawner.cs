@@ -13,15 +13,11 @@ public class PlayerRespawner : MonoBehaviour
             Health.healthValue -= Health.healthValue;
             StartCoroutine(WaitRespawn());
         }
-            
-        
     }
 
     IEnumerator WaitRespawn()
     {
         yield return new WaitForSeconds(3f);
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 }

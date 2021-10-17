@@ -7,7 +7,6 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        //Can use this function everytime you wanna go to the next scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
     public void Next()

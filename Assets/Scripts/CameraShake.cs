@@ -6,11 +6,10 @@ using Cinemachine;
 public class CameraShake : MonoBehaviour
 {
     private CinemachineBasicMultiChannelPerlin cmPerlin;
+    private float intensityStop = 0.0f;
 
     [SerializeField] private CinemachineVirtualCamera cmVCam;
     [SerializeField] private float intensity;
-
-    private float intensityStop = 0.0f;
 
     private void Start()
     {

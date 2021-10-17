@@ -7,7 +7,6 @@ public class BallTimer : MonoBehaviour
     private Rigidbody2D rBody;
     private float velX;
 
-
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
@@ -29,10 +28,8 @@ public class BallTimer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Level")
-        {
             rBody.velocity = new Vector3(velX, rBody.velocity.y, 0);
-        }
-
+        
         if (collision.gameObject.tag == "Player")
             Health.healthValue--;
     }

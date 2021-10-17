@@ -45,12 +45,10 @@ public class PlayerController : MonoBehaviour
         rBody.velocity = new Vector2(horiz * speed, rBody.velocity.y);
 
         //Step effects
-        if ((rBody.velocity.x > 0 || rBody.velocity.x < 0)&& isGrounded)
+        if ((rBody.velocity.x > 0 || rBody.velocity.x < 0) && isGrounded)
         {
             if (!audioSrc.isPlaying)
-            {
                 audioSrc.Play();
-            }
         }
         else
             audioSrc.Stop();

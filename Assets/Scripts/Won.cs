@@ -8,9 +8,7 @@ public class Won : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
             StartCoroutine(WaitWin());
-        } 
     }
 
     IEnumerator WaitWin()

@@ -12,9 +12,7 @@ public class PlayerHP : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Hazard")
-        {
             Health.healthValue--;
-        }
     }
 
     // Start is called before the first frame update
@@ -28,7 +26,6 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (Health.healthValue < 0)
             Health.healthValue = 0f;
 
@@ -38,16 +35,13 @@ public class PlayerHP : MonoBehaviour
             anim.SetBool("isDead", true);
             StartCoroutine(WaitDestroy());
         }
-
-        
     }
 
     IEnumerator WaitDestroy()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.5f);
         Destroy(this.gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Health.healthValue += startHealth;
-
     }
 }
