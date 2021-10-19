@@ -15,12 +15,15 @@ public class CameraShake : MonoBehaviour
     {
         cmPerlin = cmVCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         cmPerlin.m_AmplitudeGain = intensityStop;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && cmVCam.isActiveAndEnabled)
             cmPerlin.m_AmplitudeGain = intensity;
+        else
+            cmPerlin.m_AmplitudeGain = intensityStop;
     }
     private void OnTriggerExit2D(Collider2D other)
     {

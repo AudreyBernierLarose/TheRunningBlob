@@ -29,7 +29,10 @@ public class BallTimer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Level")
             rBody.velocity = new Vector3(velX, rBody.velocity.y, 0);
-        
+
+        if (collision.gameObject.tag == "Hazard")
+            Destroy(this.gameObject);
+
         if (collision.gameObject.tag == "Player")
             Health.healthValue--;
     }

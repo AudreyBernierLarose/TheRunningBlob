@@ -9,5 +9,8 @@ public class LeftTrap : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             Health.healthValue -= Health.healthValue;
+
+        if (other.gameObject.tag == "Ball")
+            Destroy(other.gameObject);
     }
 }
